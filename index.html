@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gkeep</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <hr class="horizontal-line">
+        <input type="text" placeholder="Поиск" class="search-field">
+        <hr class="horizontal-line">
+    </header>
+
+    
+    <div class="btn-add-note-container" id="add-note-btn">
+        +
+    </div>
+
+    <div id="notes-container">
+        
+    </div>
+    
+
+    <!--Modal window add note-->
+    <div id="modal-window-add-note" class="modal-window">
+        <div class="modal-window-content">
+            <input required type="text" placeholder="Введите заголовок" class="modal-input title-input" id="add-note-title">
+            <textarea placeholder="Текст заметки" class="modal-input description-input" id="add-note-description"></textarea>
+            <div class="modal-btn-container">
+                <button class="modal-btn" id="create-note-btn">
+                    Создать
+                </button>
+                <button class="modal-btn" id="close-modal-add-note">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modal window edit note-->
+    <div id="modal-window-edit-note" class="modal-window">
+        <div class="modal-window-content">
+            <input required type="text" placeholder="Введите заголовок" id="edit-title-field" class="modal-input title-input">
+            <textarea placeholder="Текст заметки" id="edit-text-field" class="modal-input description-input"></textarea>
+            <div class="modal-btn-container">
+                <button class="modal-btn" onclick="editNote(); closeModalWindow('modal-window-edit-note')">
+                    Сохранить
+                </button>
+                <button class="modal-btn" onclick="closeModalWindow('modal-window-edit-note')">
+                    Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal window delete note-->
+    <div id="modal-window-delete-note" class="modal-window">
+        <div class="modal-window-content">
+            <div>
+                Удалить заметку?
+            </div>
+            <div class="modal-btn-container">
+                <button class="modal-btn" onclick="closeModalWindow('modal-window-delete-note'); removeNote()">
+                    Да
+                </button>
+                <button class="modal-btn" onclick="closeModalWindow('modal-window-delete-note')">
+                    Нет
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="scripts/modalWindow.js"></script>
+    <script src="scripts/addNote.js"></script>
+    <script src="scripts/editNote.js"></script>
+    <script src="scripts/removeNote.js"></script>
+
+</body>
+</html>
